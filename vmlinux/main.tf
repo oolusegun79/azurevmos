@@ -16,3 +16,11 @@ provider "azurerm" {
 
   subscription_id = "320b693b-3ee3-4699-a2fa-1b125cd49139"
 }
+
+resource "azurerm_resource_group" "rg" {
+  name     = "rg-firstdataproject"
+  location = "West US 2"
+  tags = {
+    environment = "dev"
+  }
+}
