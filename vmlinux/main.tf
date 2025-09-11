@@ -1,4 +1,5 @@
-# We strongly recommend using the required_providers block to set the
+# Terraform Azure connectin configuration
+
 # Azure Provider source and version being used
 terraform {
   required_providers {
@@ -13,5 +14,5 @@ terraform {
 provider "azurerm" {
   features {}
 
-  subscription_id = "00000000-0000-0000-0000-000000000000"
+  subscription_id = "320b693b-3ee3-4699-a2fa-1b125cd49139"
 }
