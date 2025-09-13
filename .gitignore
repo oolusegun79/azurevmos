@@ -1,2 +1,3 @@
 vmlinux/.terraform/
 vmlinux/terraform.tfstate
+vmlinux/terraform.tfstate.backup
