@@ -18,8 +18,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "rg-firstdataproject"
-  location = "West US 2"
+  name     = var.resource_group_name
+  location = var.location
   tags = {
     environment = "dev"
   }
@@ -111,6 +111,9 @@ resource "azurerm_linux_virtual_machine" "vmlinux" {
     azurerm_network_interface.netinterface.id
   ]
 
+custom_data = filebase64("${path.module}/customdata.tpl")
+# custom_data = filebase64(format("%s/customdata.tpl", path.module))
+
   admin_ssh_key {
     username   = "admin123"
     public_key = file("~/.ssh/id_rsa.pub")
@@ -130,4 +133,9 @@ resource "azurerm_linux_virtual_machine" "vmlinux" {
   tags = {
     environment = "dev"
   } 
+}
+# 4.155.106.65
+
+output "public_ip_address" {
+  value = azurerm_public_ip.mypublicip.ip_address
 }
